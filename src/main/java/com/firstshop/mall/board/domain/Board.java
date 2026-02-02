@@ -1,0 +1,19 @@
+package com.firstshop.mall.board.domain;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class Board {
+    
+    private int no;
+    private String category;
+    private String title;
+    private String writer;
+    private String content;
+    private Date createdAt;
+    private Date updatedAt;
+    private int viewCount;
+
+}

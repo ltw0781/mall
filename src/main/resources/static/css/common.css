@@ -1,0 +1,41 @@
+/* 공통 영역 */
+.inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* --------------------- 헤더 영역 --------------------- */
+
+/* 로고 영역 */
+
+.header {}
+
+.header .inner {}
+
+.header .inner .logo_area {}
+
+.header .inner .logo_area .logo {}
+
+.header .inner .logo_area .logo h3 {}
+
+.header .inner .logo_area .logo h3 a {}
+
+.header .inner .logo_area .logo h3 a img {}
+
+
+/* GNB 영역 */
+
+.header .inner nav.gnb {}
+
+.header .inner nav.gnb ul {}
+
+.header .inner nav.gnb ul li {}
+
+.header .inner nav.gnb ul li a {}
+
+
+/* --------------------- 메인컨테이너 영역 --------------------- */
+
+
+/* --------------------- 푸터 영역 --------------------- */
