@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,11 @@
 
 <body>
     <h1>게시판 목록</h1>
-    <a href="#none">글쓰기</a>
+    <a href="/board/insert">글쓰기</a>
 
-    <div class="boarList">
+    <p th:if="${message}" th:text="${message}"></p>
+
+    <div class="boardList">
         <table border="1">
             <thead>
                 <tr>
@@ -23,8 +25,11 @@
                     <th>조회수</th>
                 </tr>
             </thead>
-            <th:block th:each="board : ${boardList}">
-                <tr>
+            <tbody>
+                <tr th:if="${#lists.isEmpty(boardList)}">
+                    <td colspan="6">등록된 글이 없습니다.</td>
+                </tr>
+                <tr th:each="board : ${boardList}">
                     <td th:text="${board.no}"></td>
                     <td th:text="${board.category}"></td>
                     <td>
@@ -34,7 +39,7 @@
                     <td th:text="${#dates.format(board.createdAt, 'yyyy-MM-dd')}"></td>
                     <td th:text="${board.viewCount}"></td>
                 </tr>
-            </th:block>
+            </tbody>
         </table>
     </div>
 

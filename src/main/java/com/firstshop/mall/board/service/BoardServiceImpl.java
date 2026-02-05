@@ -9,7 +9,7 @@ import com.firstshop.mall.board.domain.Board;
 import com.firstshop.mall.board.mapper.BoardMapper;
 
 @Service
-public class BoardServiceImpl implements BoardService{
+public class BoardServiceImpl implements BoardService {
 
     @Autowired
     private BoardMapper boardMapper;
@@ -17,36 +17,30 @@ public class BoardServiceImpl implements BoardService{
     // 게시판 목록
     @Override
     public List<Board> list() throws Exception {
-
-        List<Board> boardList = boardMapper.list();
-        return boardList;
-
+        return boardMapper.list();
     }
 
+    // 게시판 상세
     @Override
     public Board read(int no) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'read'");
+        return boardMapper.read(no);
     }
 
+    // 게시판 등록
     @Override
     public int insert(Board board) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+        return boardMapper.insert(board);
     }
 
+    // 게시판 수정
     @Override
     public int update(Board board) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        return boardMapper.update(board);
     }
 
+    // 게시판 삭제
     @Override
     public int delete(int no) throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        return boardMapper.delete(no);
     }
-    
-
-
 }

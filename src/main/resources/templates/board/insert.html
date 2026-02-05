@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 등록</title>
+</head>
+
+<body>
+    <h1>게시글 등록</h1>
+
+    <form action="/board/insert" method="post">
+        <p>
+            <label>카테고리 <input type="text" name="category" required></label>
+        </p>
+        <p>
+            <label>제목 <input type="text" name="title" required></label>
+        </p>
+        <p>
+            <label>작성자 <input type="text" name="writer" required></label>
+        </p>
+        <p>
+            <label>내용</label><br>
+            <textarea name="content" rows="10" cols="80" required></textarea>
+        </p>
+        <button type="submit">등록</button>
+        <a href="/board/list">취소</a>
+    </form>
+</body>
+
+</html>
