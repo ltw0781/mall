@@ -4,8 +4,50 @@
 <mapper namespace="com.firstshop.mall.board.mapper.BoardMapper">
 
     <select id="list" resultType="Board">
-        SELECT *
+        SELECT no, category, title, writer, content, created_at, updated_at, view_count
         FROM board
+        ORDER BY no DESC
     </select>
+
+    <select id="read" parameterType="int" resultType="Board">
+        SELECT no, category, title, writer, content, created_at, updated_at, view_count
+        FROM board
+        WHERE no = #{no}
+    </select>
+
+    <insert id="insert" parameterType="Board">
+        INSERT INTO board (
+            category,
+            title,
+            writer,
+            content,
+            created_at,
+            updated_at,
+            view_count
+        ) VALUES (
+            #{category},
+            #{title},
+            #{writer},
+            #{content},
+            NOW(),
+            NOW(),
+            0
+        )
+    </insert>
+
+    <update id="update" parameterType="Board">
+        UPDATE board
+        SET category = #{category},
+            title = #{title},
+            writer = #{writer},
+            content = #{content},
+            updated_at = NOW()
+        WHERE no = #{no}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM board
+        WHERE no = #{no}
+    </delete>
 
 </mapper>
