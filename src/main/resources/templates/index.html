@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -37,17 +37,19 @@
         <div class="inner">
             <section class="hero">
                 <div class="main_banner">
-                    <img src="" alt="매인배너영역">
+                    <img src="" alt="메인배너영역">
                 </div>
             </section>
 
             <div class="board_area">
+                <h2>최근 게시글</h2>
                 <ul>
-                    <li><a href="#none">게시글1</a></li>
-                    <li><a href="#none">게시글2</a></li>
-                    <li><a href="#none">게시글3</a></li>
-                    <li><a href="#none">게시글4</a></li>
-                    <li><a href="#none">게시글5</a></li>
+                    <li th:if="${#lists.isEmpty(boardList)}">
+                        <a href="/board/list">등록된 게시글이 없습니다.</a>
+                    </li>
+                    <li th:each="board : ${boardList}">
+                        <a th:href="|/board/read?no=${board.no}|" th:text="${board.title}"></a>
+                    </li>
                 </ul>
             </div>
         </div>
